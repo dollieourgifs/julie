@@ -54,6 +54,55 @@
             margin: 0; /* Elimina el margen entre los GIFs */
             padding: 0; /* Elimina el padding entre los GIFs */
         }
+
+        /* Popup y fondo difuminado */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+        }
+        .popup {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: justify;
+            width: 500px; /* 7 GIFs por fila */
+            height: auto;
+            
+        }
+        
+        .popup h2 {
+            margin-top: 0;
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+            
+    
+        }
+        
+        .popup button {
+            background-color: pink;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin: 10px auto;
+        }
+        
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -63,6 +112,25 @@
     </div>
 
     <div id="gifcontainer"></div>
+
+    <div class="overlay" id="popup-overlay">
+        <div class="popup">
+            <h2>rules.</h2>
+       
+            <p><b>001.</b> some gif packs are for my personal use and i wanted to share them with the community for free. so don’t repost my gifs, claim as your own or redistribute them</p>
+
+<p><b>002.</b> don't use them on edits <i>(crackships, static icons, etc.)</i></p>
+
+<p><b>003.</b> don’t use them on platforms other than tumblr and discord.</p>
+
+<p><b>004.</b> if you're homophobic, racist, xenophobic, biphobic, or transphobic, and/or if you're part of smut/slave rps or play minors, don't use my resources.</p>
+
+<p><b>005.</b> don't use them on fanfics or for purposes other than roleplaying.</p>
+
+<p><b>006.</b> don't edit them.</p></p>
+            <button onclick="closePopup()"><b>got it!</b></button>
+        </div>
+    </div>
 
     <script>
         // URL del repositorio en GitHub
@@ -91,6 +159,10 @@
                 });
             })
             .catch(error => console.error('Error al cargar los GIFs:', error));
+
+        function closePopup() {
+            document.getElementById('popup-overlay').classList.add('hidden');
+        }
     </script>
 </body>
 </html>
